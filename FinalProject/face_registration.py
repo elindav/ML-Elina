@@ -14,7 +14,7 @@ cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, height)
 
 #Create a face detector using the Haar cascade classifier
-face_cascade = cv2.CascadeClassifier('haar_cascade_files/haarcascade_frontalface_defauld.xml')
+face_cascade = cv2.CascadeClassifier('haar_cascade_files/haarcascade_frontalface_default.xml')
 
 
 # Prompt the user to enter the name for the registration
@@ -53,7 +53,7 @@ while True:
 	    face_data.append(
 		{"name": name, "face": frame[y:y+h, x:x+w], "face_encoding": face_encoding, "access": access_list})
 #Display the frame
-cv2.imshow('Register Face', frame)
+	cv2.imshow('Register Face', frame)
 
 	if cv2.waitKey(1) & 0xFF == ord('s'):
 		capture_count +=1
