@@ -60,17 +60,17 @@ while True:
             matched_names.append(known_face_names[np.argmin(distances)])
 
         # Draw rectangle
-        rectangle_color = (0, 255, 0) if matched_names and "room2" in [access.lower() for access in known_face_access[np.argmin(distances)]] else (
+        rectangle_color = (0, 255, 0) if matched_names and "room1" in [access.lower() for access in known_face_access[np.argmin(distances)]] else (
             0, 0, 255)  # Green if recognized and has access, red otherwise
         cv2.rectangle(frame, (x, y), (x+w, y+h), rectangle_color, 3)
 
         # Get the access text and its size
-        if matched_names and "room2" in [access.lower() for access in known_face_access[np.argmin(distances)]]:
+        if matched_names and "room1" in [access.lower() for access in known_face_access[np.argmin(distances)]]:
             access_text = f"{matched_names[0]} - Access Granted - Room 1"
             # Green if recognized and has access
             access_text_color = (0, 255, 0)
         else:
-            access_text = "Unknown" if not matched_names else f"{matched_names[0]} - Access denied - Room 1"
+            access_text = "Unknown" if not matched_names else f"{matched_names[0]} - Access Denied - Room 1"
             access_text_color = (0, 0, 255)  # Red if unrecognized or no access
         (text_width, text_height), _ = cv2.getTextSize(
             access_text, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 1)

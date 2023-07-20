@@ -70,7 +70,7 @@ while True:
             # Green if recognized and has access
             access_text_color = (0, 255, 0)
         else:
-            access_text = "Unknown" if not matched_names else f"{matched_names[0]} - Access Granted - Room 2"
+            access_text = "Unknown" if not matched_names else f"{matched_names[0]} - Access Denied - Room 2"
             access_text_color = (0, 0, 255)  # Red if unrecognized or no access
         (text_width, text_height), _ = cv2.getTextSize(
             access_text, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 1)
